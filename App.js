@@ -7,105 +7,121 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+import BlankSpacer from "react-native-blank-spacer";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Inputs from './doubleTextInput.js'
+import ForgotPassword from './forgotPassword.js'
+import NewAccount from './createAccount.js'
+import SignInWithGoogle from './signInWithGoogle.js'
+
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
+  Button,
   View,
+  ImageBackground,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const image = { uri: "/Users/abi3/ADP/HSH/volunteer_app/adp_background.png" };
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+function LogInScreen({navigation}){
+  
+  return(
+    <View>
+    <BlankSpacer height={20}/>
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}></ImageBackground>
+    <BlankSpacer height={40}/>
+    <Text style = {styles.whiteTitle}>JANJ Activity Tracker</Text>
+    <Text style = {styles.whiteTitle}>Sign In</Text>
+
+    <View style = {styles.subContainer}>
+    <Inputs />
+
     </View>
+    <Button
+      onPress={() => navigation.navigate('ForgotPassword')}
+      title="Forgot Password"
+      color="#019EF3"
+    />
+    <Button
+      onPress={()=> navigation.navigate('NewAccount')}
+      title="Create a New Account"
+      color="#019EF3"
+    />
+      <Button
+      onPress={()=> navigation.navigate('SignInWithGoogle')}
+      title="Sign in With Google"
+      color="#019EF3"
+    />
+  </View>
   );
-};
+}
+const Stack = createNativeStackNavigator();
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+function App(){
+  return(
+    <NavigationContainer>
+    <Stack.Navigator initialRouteName="LogInScreen">
+      <Stack.Screen name="Log In" component={LogInScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <Stack.Screen name="NewAccount" component={NewAccount} />
+      <Stack.Screen name="SignInWithGoogle" component={SignInWithGoogle} />
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    </Stack.Navigator>
+  </NavigationContainer>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  image: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignSelf: 'center',
+    height: 300,
+    width: '100%',
+    resizeMode: 'contain',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  leftTitle: {
+    justifyContent: 'center',
+    left: 10,
+    color: "black",
+    fontSize: 30,
+    textAlign: "left",
   },
-  highlight: {
-    fontWeight: '700',
+  centerTitle: {
+    justifyContent: 'center',
+    left: 10,
+    color: "black",
+    fontSize: 30,
+    textAlign: "center",
+    marginTop: 30,
+  },
+  whiteTitle: {
+    justifyContent: 'center',
+    left: 10,
+    color: "white",
+    fontSize: 37,
+    textAlign: "left",
+    
+  },
+  subtitle: {
+    color: "white",
+    fontSize: 30,
+    lineHeight: 84,
+    fontWeight: "bold",
+    textAlign: "left",
+  },
+  subContainer:{
+    margin: '12.5%',
+    marginTop: '30%',
+    width: '75%',
+    height: '40%', 
+    borderWidth:1, 
+    borderColor: "grey"
   },
 });
 
