@@ -5,7 +5,6 @@ import MultipleInput from './multipleTextInput'
 import {
     Text,
     View,
-    StyleSheet,
     Button
   } from 'react-native';
 
@@ -18,6 +17,5 @@ import {
       <Button title="Go back" onPress={() => navigation.popToTop()} /> 
       </View>
   );
-}
-
+    }
 export default NewAccount;
