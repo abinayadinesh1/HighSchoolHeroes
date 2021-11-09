@@ -11,9 +11,14 @@ import {Dimensions} from 'react-native';
 const {height} = Dimensions.get('window');
 
 class SingleInput extends Component {
-  state = {email: ''};
-  handleEmail = text => {
-    this.setState({email: text});
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    birthday: '',
+    school: '',
+    gradeLevel: '',
+    address: '',
   };
   login = email => {
     alert('email: ' + email);
@@ -21,15 +26,59 @@ class SingleInput extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text> First Name </Text>
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
-          placeholder="Email"
+          placeholder="Jane"
           placeholderTextColor="#08ec34"
           autoCapitalize="none"
-          onChangeText={this.handleEmail}
         />
+        <Text> Last Name </Text>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="Doe"
+          placeholderTextColor="#08ec34"
+          autoCapitalize="none"
+        />
+        <Text> Email Address </Text>
 
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="janedoe1@gmail.com"
+          placeholderTextColor="#08ec34"
+          autoCapitalize="none"
+        />
+        <Text> Birthday </Text>
+
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="06/30/2005"
+          placeholderTextColor="#08ec34"
+          autoCapitalize="none"
+        />
+        <Text> Grade Level </Text>
+
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="10"
+          placeholderTextColor="#08ec34"
+          autoCapitalize="none"
+        />
+        <Text> Full Address </Text>
+        <Text> include apartment, building number, etc. </Text>
+
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="1000 Cherry Apple Lane, Edison, NJ, 08902, USA"
+          placeholderTextColor="#08ec34"
+          autoCapitalize="none"
+        />
         <Pressable
           style={styles.filledButton}
           onPress={

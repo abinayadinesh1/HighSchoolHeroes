@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleInput from './singleTextInput.js'
+import MultipleInput from './multipleTextInput'
 
 
 import {
@@ -9,13 +9,15 @@ import {
     Button
   } from 'react-native';
 
-function NewAccount({navigation}){
-return(
-    <View>
-    <Text>Create a New Account</Text>
-    <Button title="Go back" onPress={() => navigation.popToTop()} /> 
-    </View>
-);
+  const NewAccount = ({navigation}) => {
+    return(
+      <View>
+        <MultipleInput />
+          {/* MultipleInput(['first name', 'last name', 'email', 'address']), */}
+      <Text>Create a New Account</Text>
+      <Button title="Go back" onPress={() => navigation.popToTop()} /> 
+      </View>
+  );
 }
 
 export default NewAccount;
