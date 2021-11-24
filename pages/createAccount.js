@@ -1,5 +1,5 @@
 import React from 'react';
-import MultipleInput from './multipleTextInput'
+import MultipleInput from './classes/multipleTextInput'
 
 
 import {

@@ -6,9 +6,9 @@
  * @flow strict-local
  */
  import React, { Component } from 'react'
- import { View, Text, TouchableOpacity, TextInput, StyleSheet, Pressable } from 'react-native'
+ import { View, Text, TextInput, StyleSheet, Pressable } from 'react-native'
  import { Dimensions } from 'react-native';
- const { width, height } = Dimensions.get('window');
+ const { height } = Dimensions.get('window');
 
  class Inputs extends Component {
     state = {
@@ -32,6 +32,7 @@
                 placeholder = "Username"
                 placeholderTextColor = "#08ec34"
                 autoCapitalize = "none"
+                onChange={(e) => setEmail(e.target.value)}
                 onChangeText = {this.handleUsername}/>
              
              <TextInput style = {styles.input}

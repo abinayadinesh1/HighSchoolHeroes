@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleInput from './singleTextInput.js'
+import SingleInput from './classes/singleTextInput.js'
 
 
 import {
