@@ -28,11 +28,15 @@ export const requestRegister = async (firstname, lastname, email, grade, school,
 
 export const requestLogin = async (username, password) => {
     let request = { method: "POST" };
+    console.log(request)
     let info = {
         username: username,
         password: password
     }
+    console.log(username, password)
     request.body = JSON.stringify(info);
+    console.log("request body")
+    console.log(request.body)
     let data = await fetch(`${URL}login/`, {
         ...request,
         headers: new Headers({
