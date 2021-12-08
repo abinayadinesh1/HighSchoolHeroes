@@ -21,16 +21,13 @@ function LogInScreen({navigation, setPage, setToken}) {
     // const [loading, setLoading] = useState(false);
   
     const register = text => {
-      e.preventDefault();
+      text.preventDefault();
     };
   
     const login = async (text) => {
-        console.log("email and password from loginscreen")
-        console.log(email, password)
       let response = await requestLogin(email, password);
-      console.log(response);
       if (response && response.token) {
-        console.log("response or token is available")
+
       } else if (response && response.username) {
         setError(response.username);
       } else if (response && response.password) {
@@ -59,7 +56,8 @@ function LogInScreen({navigation, setPage, setToken}) {
               placeholder="Username"
               placeholderTextColor="#08ec34"
               autoCapitalize="none"
-              onChange={text => setEmail(text)}
+              value={email}
+              onChangeText={text => setEmail(text)}
             />
             <TextInput
               style={styles.input}
@@ -67,7 +65,8 @@ function LogInScreen({navigation, setPage, setToken}) {
               placeholder="Password"
               placeholderTextColor="#08ec34"
               autoCapitalize="none"
-              onChange={text => setPassword(text)}
+              value={password}
+              onChangeText={text => setPassword(text)}
             />
             <Button onPress={text => login(text)} title="Login" color="#000000" />
           </View>

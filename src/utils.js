@@ -33,7 +33,6 @@ export const requestLogin = async (username, password) => {
         username: username,
         password: password
     }
-    console.log(username, password)
     request.body = JSON.stringify(info);
     console.log("request body")
     console.log(request.body)
@@ -45,6 +44,7 @@ export const requestLogin = async (username, password) => {
     });
 
     var response = await data.json();
+    console.log("response");
     console.log(response);
     return response;
 }
