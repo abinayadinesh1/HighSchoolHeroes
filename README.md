@@ -1,2 +1,9 @@
 # HighSchoolHeroes
-ADP's cross platform app for volunteers and administrators.
+Junior Achievement of NJ's app to organize volunteers and event organizers around the state. Built a full stack application that enables users to:
+- log in
+- track volunteer hours
+- see personal event history
+  - export event history 
+- communicate with event coordinators
+
+Tech Stack: React Native, Django server + database
